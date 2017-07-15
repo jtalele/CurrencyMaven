@@ -1,0 +1,50 @@
+#%RAML 0.8
+title: Currency
+version: 1.0
+#baseUri: http://localhost:8081
+baseUri: https://mocksvc.mulesoft.com/mocks/cd18b3cf-5f12-497c-9200-ae45ffa5296e
+/currency:
+  description: Currency Convertor
+  displayName: Currency Convertor
+  get:
+    description: Currency Convertor - get
+    queryParameters: 
+      year: 
+        type: integer
+        required: false
+        repeat: false
+        example: "2016"
+      month:
+        type: integer
+        required: false
+        repeat: false
+        example: "11"
+      source:
+        description: From Currency
+        type: string
+        required: false
+        repeat: false
+        example: GBP
+      target:
+        description: To Currency
+        type: string
+        required: false
+        repeat: false
+        example: USD
+    responses: 
+      200:
+        description: Currency Converted Sucess
+        body: 
+          application/json:
+            example: |
+              [
+                {
+                  "year" : "2016",
+                  "month" : "11",
+                  "source" : "GBP",
+                  "target" : "EUR"
+                }
+              ]
+
+      
+        
